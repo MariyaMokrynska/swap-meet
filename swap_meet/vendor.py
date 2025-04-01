@@ -7,7 +7,7 @@ class Vendor:
         return new_item
     
     def remove(self, item_to_remove):
-        self.inventory.remove(item_to_remove)
-        if not item_to_remove in self.inventory:
-            return False
-        return item_to_remove
+        if item_to_remove in self.inventory:
+            self.inventory.remove(item_to_remove)
+            return item_to_remove
+        return False
