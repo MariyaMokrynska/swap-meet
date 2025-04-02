@@ -1,5 +1,7 @@
 import uuid
 
+# WAVE 2
+
 
 class Item:
     def __init__(self, id=None):  # default id is None
@@ -22,9 +24,11 @@ class Item:
         """
         return self.__class__.__name__
 
-### WAVE 3 
-        
+
+# WAVE 3
+
     # Returns a string representation of the Item instance
+
+
     def __str__(self):
         return f"An object of type Item with id {self.id}."
-    
