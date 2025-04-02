@@ -1,5 +1,7 @@
 from .item import Item
 
+# WAVE 1
+
 
 class Vendor:
     def __init__(self, inventory=None):
