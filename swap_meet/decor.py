@@ -1,3 +1,17 @@
+### WAVE 5
+
+from uuid import uuid4 
+
 class Decor:
-    # just some comment to verify pushing to repo works
-    pass
+    def __init__(self, id=None, width=0, length=0):
+        self.id = uuid4().int if id is None else id
+        self.width = width if width != 0 else 0
+        self.length = length if length != 0 else 0
+
+    def get_category(self):
+        return self.__class__.__name__
+    
+    def __str__(self):
+        return f"An object of type Decor with id {self.id}."\
+            f" It takes up a {self.width} by {self.length} sized space."
+
