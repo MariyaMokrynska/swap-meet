@@ -21,3 +21,9 @@ class Item:
         Written By Mariya Mokrynska
         """
         return self.__class__.__name__
+
+### WAVE 3 
+        
+    # Returns a string representation of the Item instance
+    def __str__(self):
+        return f"An object of type Item with id {self.id}."
