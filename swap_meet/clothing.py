@@ -10,7 +10,7 @@ class Clothing:
     
     def __str__(self):
         return f"An object of type Clothing with id {self.id}."\
-        " It is made from {self.fabric} fabric."
+        f" It is made from {self.fabric} fabric."
     
 item_a = Clothing(123435, "Wool")
 print(str(item_a))
