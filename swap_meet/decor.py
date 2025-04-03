@@ -8,7 +8,7 @@ class Decor(Item): # Updated class to inherit from Item
         self.id = uuid4().int if id is None else id
         self.width = 0 if width == 0 else width
         self.length = 0 if length == 0 else length
-        super().__init__(id=id, condition=condition)  # pass condition to Item
+        super().__init__(id, condition)  # pass condition to Item
 
     def get_category(self):
         return self.__class__.__name__
