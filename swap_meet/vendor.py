@@ -17,7 +17,7 @@ class Vendor:
             return item_to_remove
         return False
 
-  # WAVE 2
+# WAVE 2
     def get_by_id(self, id):
         """
         Searches for an item in the inventory by its ID.
@@ -72,6 +72,9 @@ class Vendor:
 # WAVE 6
 
     def get_by_category(self, category):
+        """
+        Get all items in the inventory that match the given category.
+        """
         matching_items = []
         for item in self.inventory:
             if item.get_category() == category:
@@ -79,8 +82,11 @@ class Vendor:
         return matching_items
 
     def get_best_by_category(self, category):
+        """
+        Get the item with the highest condition in the given category.
+        """
         best_item = None
-        highest_condition = -1.0
+        highest_condition = -1
 
         for item in self.inventory:
             if item.get_category() == category:
@@ -90,5 +96,14 @@ class Vendor:
 
         return best_item
 
-    def swap_best_by_category(self, category):
-        pass
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        """
+        Swap the best item of a given category with another vendor's best item 
+        from a different category.
+
+        Written By Mariya Mokrynska
+        """
+        my_item = self.get_best_by_category(their_priority)
+        their_item = other_vendor.get_best_by_category(my_priority)
+
+        return self.swap_items(other_vendor, my_item, their_item)
