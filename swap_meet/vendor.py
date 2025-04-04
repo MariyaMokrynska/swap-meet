@@ -86,10 +86,11 @@ class Vendor:
         """
         if self.inventory == [] or other_vendor.inventory == []:
             return False
-        else:
-            my_item = self.inventory[0]
-            their_item = other_vendor.inventory[0]
-            return self.swap_items(other_vendor, my_item, their_item)
+
+        my_item = self.inventory[0]
+        their_item = other_vendor.inventory[0]
+
+        return self.swap_items(other_vendor, my_item, their_item)
 
 # WAVE 6
 
@@ -131,4 +132,5 @@ class Vendor:
         # Ensure both items exist before swapping
         if not my_item or not their_item:
             return False
+
         return self.swap_items(other_vendor, my_item, their_item)
