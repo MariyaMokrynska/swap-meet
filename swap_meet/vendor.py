@@ -46,9 +46,11 @@ class Vendor:
 
         return True
 
+
 # WAVE 4
-    def swap_first_item(self, other_vendor):
-        """
+# version 1
+#    def swap_first_item(self, other_vendor):
+        """ 
         Swap the first item in each vendor's inventory if both have items.
 
         Args:
@@ -59,15 +61,35 @@ class Vendor:
 
         Written By Mariya Mokrynska
         """
-        if self.inventory != [] and other_vendor.inventory != []:
-            my_item_to_remove = self.remove(self.inventory[0])
-            other_vendor.add(my_item_to_remove)
+#        if self.inventory != [] and other_vendor.inventory != []:
+#            my_item_to_remove = self.remove(self.inventory[0])
+#            other_vendor.add(my_item_to_remove)
 
-            other_vendor_item_to_remove = other_vendor.remove(
-                other_vendor.inventory[0])
-            self.add(other_vendor_item_to_remove)
-            return True
-        return False
+#            other_vendor_item_to_remove = other_vendor.remove(
+#                other_vendor.inventory[0])
+#            self.add(other_vendor_item_to_remove)
+#            return True
+#        return False
+
+
+# WAVE 4
+# version 2
+
+    def swap_first_item(self, other_vendor):
+        """
+        Swap the first item in the inventory with another vendor's first item.
+
+        If either inventory is empty, the swap does not happen and returns False. 
+        Otherwise, it swaps the first item from each vendor's inventory.
+
+        Written By Mariya Mokrynska
+        """
+        if self.inventory == [] or other_vendor.inventory == []:
+            return False
+        else:
+            my_item = self.inventory[0]
+            their_item = other_vendor.inventory[0]
+            return self.swap_items(other_vendor, my_item, their_item)
 
 # WAVE 6
 
@@ -106,4 +128,7 @@ class Vendor:
         my_item = self.get_best_by_category(their_priority)
         their_item = other_vendor.get_best_by_category(my_priority)
 
+        # Ensure both items exist before swapping
+        if not my_item or not their_item:
+            return False
         return self.swap_items(other_vendor, my_item, their_item)
