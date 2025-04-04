@@ -68,3 +68,18 @@ class Vendor:
             self.add(other_vendor_item_to_remove)
             return True
         return False
+
+# WAVE 6
+
+    def get_by_category(self, category):
+        matching_items = []
+        for item in self.inventory:
+            if item.get_category() == category:
+                matching_items.append(item)
+        return matching_items
+
+    def get_best_by_category(category):
+        pass
+
+    def swap_best_by_category(category):
+        pass
