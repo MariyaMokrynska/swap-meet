@@ -78,8 +78,17 @@ class Vendor:
                 matching_items.append(item)
         return matching_items
 
-    def get_best_by_category(category):
-        pass
+    def get_best_by_category(self, category):
+        best_item = None
+        highest_condition = -1.0
 
-    def swap_best_by_category(category):
+        for item in self.inventory:
+            if item.get_category() == category:
+                if item.condition > highest_condition:
+                    highest_condition = item.condition
+                    best_item = item
+
+        return best_item
+
+    def swap_best_by_category(self, category):
         pass
