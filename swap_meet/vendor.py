@@ -1,7 +1,4 @@
-from .item import Item
-
 # WAVE 1
-
 
 class Vendor:
     def __init__(self, inventory=None):
@@ -12,12 +9,14 @@ class Vendor:
         return new_item
 
     def remove(self, item_to_remove):
-        if item_to_remove in self.inventory:
-            self.inventory.remove(item_to_remove)
-            return item_to_remove
-        return False
+        if item_to_remove not in self.inventory:
+            return False
+        self.inventory.remove(item_to_remove)
+        return item_to_remove
+
 
 # WAVE 2
+
     def get_by_id(self, id):
         """
         Searches for an item in the inventory by its ID.
@@ -84,7 +83,9 @@ class Vendor:
 
         Written By Mariya Mokrynska
         """
-        if self.inventory == [] or other_vendor.inventory == []:
+        # if self.inventory == [] or other_vendor.inventory == []:
+        #    return False
+        if not self.inventory or not other_vendor.inventory:
             return False
 
         my_item = self.inventory[0]
