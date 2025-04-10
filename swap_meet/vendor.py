@@ -105,16 +105,24 @@ class Vendor:
         """
         Get the item with the highest condition in the given category.
         """
-        best_item = None
-        highest_condition = -1
+        # best_item = None
+        # highest_condition = -1
 
-        for item in self.inventory:
-            if item.get_category() == category:
-                if item.condition > highest_condition:
-                    highest_condition = item.condition
-                    best_item = item
+        # for item in self.inventory:
+        #     if item.get_category() == category:
+        #         if item.condition > highest_condition:
+        #             highest_condition = item.condition
+        #             best_item = item
 
-        return best_item
+        # return best_item
+        
+        # Refactored version
+
+        items_in_category = self.get_by_category(category)
+        if not items_in_category:
+            return None
+        
+        return max(items_in_category, key=lambda item: item.condition)
 
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         """
