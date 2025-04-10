@@ -3,11 +3,15 @@ import pytest
 from swap_meet.vendor import Vendor
 
 # @pytest.mark.skip
+
+
 def test_vendor_has_inventory():
     vendor = Vendor()
     assert len(vendor.inventory) == 0
 
 # @pytest.mark.skip
+
+
 def test_vendor_takes_optional_inventory():
     inventory = ["a", "b", "c"]
     vendor = Vendor(inventory=inventory)
@@ -17,6 +21,8 @@ def test_vendor_takes_optional_inventory():
     assert "c" in vendor.inventory
 
 # @pytest.mark.skip
+
+
 def test_adding_to_inventory():
     vendor = Vendor()
     item = "new item"
@@ -28,6 +34,8 @@ def test_adding_to_inventory():
     assert result == item
 
 # @pytest.mark.skip
+
+
 def test_removing_from_inventory_returns_item():
     item = "item to remove"
     vendor = Vendor(
@@ -41,6 +49,8 @@ def test_removing_from_inventory_returns_item():
     assert result == item
 
 # @pytest.mark.skip
+
+
 def test_removing_not_found_is_false():
     item = "item to remove"
     vendor = Vendor(
@@ -56,3 +66,6 @@ def test_removing_not_found_is_false():
     assert len(vendor.inventory) == 3
     assert item not in vendor.inventory
     assert result == False
+    assert "a" in vendor.inventory
+    assert "b" in vendor.inventory
+    assert "c" in vendor.inventory
