@@ -41,8 +41,9 @@ def test_get_no_matching_items_by_category():
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
-    assert len(items) == 0
+    assert items == []
     assert item_a not in items
+    assert item_b not in items
     assert item_c not in items
 
 # @pytest.mark.skip
@@ -133,7 +134,7 @@ def test_swap_best_by_category():
     # - That the results is truthy
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories, including the items which were swapped from one vendor to the other
-    assert result
+    assert result is True
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
 
@@ -179,7 +180,7 @@ def test_swap_best_by_category_reordered():
     # - That result is truthy
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories, and that the items that were swapped are not there
-    assert result
+    assert result is True
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
 
@@ -280,7 +281,7 @@ def test_swap_best_by_category_no_match_is_false():
     # - That result is falsy
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories
-    assert not result
+    assert result is False
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
 
@@ -326,7 +327,7 @@ def test_swap_best_by_category_no_other_match_is_false():
     # - That result is falsy
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories
-    assert not result
+    assert result is False
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
 
