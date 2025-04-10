@@ -1,11 +1,8 @@
 ### WAVE 5
-
-from uuid import uuid4 
 from .item import Item
 
 class Decor(Item): # Updated class to inherit from Item
     def __init__(self, id=None, width=0, length=0, condition=0):
-        self.id = uuid4().int if id is None else id
         self.width = 0 if width == 0 else width
         self.length = 0 if length == 0 else length
         super().__init__(id, condition)  # pass condition to Item
