@@ -99,11 +99,7 @@ class Vendor:
         """
         Get all items in the inventory that match the given category.
         """
-        matching_items = []
-        for item in self.inventory:
-            if item.get_category() == category:
-                matching_items.append(item)
-        return matching_items
+        return [item for item in self.inventory if item.get_category() == category]
 
     def get_best_by_category(self, category):
         """
